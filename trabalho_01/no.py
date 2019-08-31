@@ -23,3 +23,7 @@ class No():
 
     def getEstimativa(self):
         return self.estimativa
+
+    def __str__(self):
+        return (" Vertice  : %s \n Estimativa: %i \n Tempo(%i\%i): " % (
+            self.id, self.estimativa, self.input, self.output))  # imprimir o predecesso
