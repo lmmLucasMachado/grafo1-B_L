@@ -4,6 +4,7 @@ class No():
         self.id = id
         self.visitado = False
         self.predecessor = []
+        self.estimativa = 999999
 
     def setVisitado(self, valor):
         self.visitado = valor
