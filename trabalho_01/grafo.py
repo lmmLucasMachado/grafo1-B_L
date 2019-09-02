@@ -42,19 +42,6 @@ class Grafo:
             print("############  ERROR  ############")
             print("Aresta nao criada nos invalidos")
 
-    '''
-    def busca_adjacente(self, u):  # metodo recebe um vertice
-        for i in range(len(self.lista_arestas)):
-            origem = self.lista_arestas[i].getOrigem()
-            destino = self.lista_arestas[i].getDestino()
-            
-            if (u.getId() == origem.getId()) and (destino.getVisitado() == False):
-                destino.setVisitado(True)  # retorna o correto
-                return destino
-            else:
-                return None
-    '''
-
     def busca_todas_arestas(self, u):
         nos_conectados = []
         for w in self.lista_arestas:
@@ -93,3 +80,64 @@ class Grafo:
         self.visita(no_0)
 
     # Fim busca em profundidade 
+
+    ## Dijkstra
+    def inicializa_Fonte(self, fonte):
+        for v in self.lista_nos:
+            v.setEstimativa(99999)
+            v.setVisitado(False)
+        fonte.setVisitado(True)
+        fonte.setEstimativa(0)
+
+    ####################################################################
+
+    def busca_vertice(self, identificador):
+        for i in self.lista_nos:
+            if identificador == i.getId():
+                return i
+        else:
+            return None
+
+    def busca_Adjacente(self, u):  
+        for i in range(len(self.lista_arestas)):
+            origem = self.lista_arestas[i].getOrigem()
+            destino = self.lista_arestas[i].getDestino()
+            if (u.getId() == origem.getId()) and (destino.getVisitado() == False):
+                destino.setVisitado(True) 
+                return destino
+        else:
+            return None
+
+    def relaxa_Vertice(self, u, v, w):
+        if v.getEstimativa() > (u.getEstimativa() + w.getPeso()):
+            v.setEstimativa(u.getEstimativa() + w.getPeso())
+            v.predecessor.append(u.getId())
+
+    def Dijkstra(self, origem):
+        fonte = self.busca_vertice(origem)
+        if fonte is None:
+            return "Vertce Nulo"
+
+        self.inicializa_Fonte(fonte)
+        lista = []
+        resposta = []  
+        for i in self.lista_nos:
+            lista.append(i)
+        while len(lista) != 0:
+            lista.sort()
+            u = lista[0]
+            v = self.busca_Adjacente(u)
+            if v is None:
+                for i in self.lista_nos:
+                    i.setVisitado(False)
+                resposta.append(lista[0])
+                lista.pop(0)  # retiro vertice sem adjacente da lista
+
+            else:
+                w = self.busca_aresta(u, v)
+                if w is not None:
+                    self.relaxa_Vertice(u, v, w)
+
+        print("Estimativas: ")
+        for i in resposta:
+            print(i)  # imprimo as respostas

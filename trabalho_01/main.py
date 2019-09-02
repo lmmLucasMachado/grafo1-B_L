@@ -3,32 +3,24 @@ from grafo import Grafo
 g = Grafo()
 for i in range(0,9):
     g.new_no(i)
-'''
 
-g.nova_aresta(0,1,4)
-g.nova_aresta(0,4,2)
-g.nova_aresta(1,2,1)
-g.nova_aresta(1,3,0)
-g.nova_aresta(2,3,3)
-g.nova_aresta(3,4,8)
-g.nova_aresta(4,1,2)
+g.nova_aresta(1,3,232)
+g.nova_aresta(1,2,32)
+g.nova_aresta(3,4,345)
+g.nova_aresta(2,4,324)
+g.nova_aresta(4,5,23)
+g.nova_aresta(5,6,23)
+g.nova_aresta(5,7,44)
+g.nova_aresta(6,7,23)
+g.nova_aresta(7,11)
 
-
-g.new_no(0)
-g.new_no(1)
-g.new_no(2)
-'''
-g.nova_aresta(1,3,4)
-g.nova_aresta(1,2,4)
-g.nova_aresta(3,4,4)
-g.nova_aresta(2,4,4)
-g.nova_aresta(4,5,4)
-g.nova_aresta(5,6,4)
-g.nova_aresta(5,7,4)
-g.nova_aresta(6,7,4)
-g.nova_aresta(7,8,4)
+print("Aplicando DFS")
+print("(busca em largura")
 
 g.DFS(1)
+
+g.Dijkstra(1)
+
 '''
 
 g.new_no("Ceilandia")
