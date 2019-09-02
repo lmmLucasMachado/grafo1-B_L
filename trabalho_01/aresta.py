@@ -1,6 +1,6 @@
 #Aresta
 class Aresta():
-	def __init__(self,origem,destino,peso = 0):
+	def __init__(self,origem,destino,peso):
 		self.origem = origem
 		self.destino = destino
 		self.peso = peso
@@ -11,11 +11,14 @@ class Aresta():
 	def getDestino(self):
 		return self.destino
 	
+	def getPeso(self):
+		return self.peso
+		
 	def setOrigem(self,vertice):
 		self.origem = vertice
 		
 	def setDestino(self,vertice):
 		self.destino = vertice
 	
-	def __str__(self):
-		return "A(%s-------->%s)" % (self.origem.getId(), self.destino.getId())
+	def printAresta(self):
+		print("%s ------ %s ------> %s" % self.origem, self.destino, self.peso)
