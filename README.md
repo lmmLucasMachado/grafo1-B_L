@@ -2,6 +2,11 @@
 
 Trabalho 01 - Grafos
 
+Implementação dos metodos DFS e Dijkstra em grafos.
+
+Com aplicação que mostra a menor distancia de um no (cidade) para todos os demais.
+
+
 Disciplina **Projeto de Algoritimo**
 
 Professor **Mauricio Serrano**
