@@ -29,13 +29,11 @@ class No():
                    2 : "Taguatinga",
                    3 : "Guara",
                    4 : "Aguas Lindas",
-                   5 : "Riacho Fundo I",
-                   6 : "Riacho Fundo II",
+                   5 : "Riacho Fundo",
+                   6 : "Aguas Claras",
                    7 : "P SUl",
-                   8 : "Plano Piloto",
+                   8 : "Samanbaia",
                    9 : "Brasilia",
-                   10 : "Lago Sul",
-                   11 : "Lago Norte",
-                   12 : "M Norte"}
-        return (" Vertice  : %s \n Estimativa: %i \n" % (cidades[self.id], self.estimativa))  # imprimir o predecesso
+                   10 : "M Norte"}
+        return (" Cidade  : %s \n Distancia: %i km\n" % (cidades[self.id], self.estimativa))  # imprimir o predecesso
 
